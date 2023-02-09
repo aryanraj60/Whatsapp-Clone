@@ -44,7 +44,7 @@ const Chat = ({ messages, chat }) => {
           loading="lazy"
           className="absolute bg-cover opacity-90 top-0 left-0 right-0 bottom-0 -z-10"
         /> */}
-        <div
+        {/* <div
           id="chatScreen"
           className="absolute bg-cover opacity-90 top-0 left-0 right-0 bottom-0 -z-10"
           style={{
@@ -52,7 +52,17 @@ const Chat = ({ messages, chat }) => {
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
           }}
-        ></div>
+        ></div> */}
+        <Image
+          className="absolute bg-cover opacity-90 top-0 left-0 right-0 bottom-0 -z-10"
+          src={backgroundImage}
+          style={{
+            width: "100%",
+            height: "100%",
+          }}
+          width="1440"
+          height="900"
+        />
         <ChatScreen chat={chat} messages={messages} />
       </div>
     </div>
