@@ -21,7 +21,7 @@ const Chat = ({ messages, chat }) => {
       console.log("I'm cleanup function");
       clearInterval(intervalId);
     };
-  }, []);
+  }, [backgroundImageIndex]);
 
   const backgroundImage = `/assests/image${backgroundImageIndex}.jpeg`;
 
@@ -36,27 +36,23 @@ const Chat = ({ messages, chat }) => {
           className="absolute bg-cover opacity-90 top-0 left-0 right-0 bottom-0 -z-10"
           id="chatScreen"
         ></div> */}
+        {/* <Image
+          src={backgroundImage}
+          width="auto"
+          height="auto"
+          alt="My Background Image"
+          loading="lazy"
+          className="absolute bg-cover opacity-90 top-0 left-0 right-0 bottom-0 -z-10"
+        /> */}
         <div
           id="chatScreen"
+          className="absolute bg-cover opacity-90 top-0 left-0 right-0 bottom-0 -z-10"
           style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
             backgroundImage: `url("${backgroundImage}")`,
-            backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
-            zIndex: -10,
           }}
-        >
-          <Image
-            src={backgroundImage}
-            alt="My Background Image"
-            loading="lazy"
-          />
-        </div>
+        ></div>
         <ChatScreen chat={chat} messages={messages} />
       </div>
     </div>
