@@ -1,36 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { Sidebar, ChatScreen } from "@/components";
 import { auth, db } from "@/utils/firebase";
 import getRecipientEmail from "@/utils/getRecipientEmail";
 import { useAuthState } from "react-firebase-hooks/auth";
+import Image from "next/image";
 
 const Chat = ({ messages, chat }) => {
   const [user] = useAuthState(auth);
+  const [backgroundImageIndex, setBackgroundImageIndex] = useState(1);
 
   useEffect(() => {
-    console.log("I'm useffect of chat page");
-    const bgElement = document.getElementById("chatScreen");
-    bgElement.style.backgroundImage = "url('/assests/image1.jpeg')";
-
-    let currentImageIndex = 1;
-
+    console.log("I'm useEffect of chat page");
     const changeBackgroundImage = () => {
-      // Update the current image index
-      currentImageIndex = (currentImageIndex % 9) + 1;
-
-      // Set the background image
-      bgElement.style.backgroundImage =
-        "url('/assests/image" + currentImageIndex + ".jpeg')";
+      setBackgroundImageIndex((backgroundImageIndex % 9) + 1);
     };
 
     const intervalId = setInterval(changeBackgroundImage, 10000);
-
     return () => {
       console.log("I'm cleanup function");
       clearInterval(intervalId);
     };
   }, []);
+
+  const backgroundImage = `/assests/image${backgroundImageIndex}.jpeg`;
 
   return (
     <div className="min-h-screen flex">
@@ -39,10 +32,31 @@ const Chat = ({ messages, chat }) => {
       </Head>
       <Sidebar />
       <div className="flex-1 relative">
-        <div
+        {/* <div
           className="absolute bg-cover opacity-90 top-0 left-0 right-0 bottom-0 -z-10"
           id="chatScreen"
-        ></div>
+        ></div> */}
+        <div
+          id="chatScreen"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundImage: `url("${backgroundImage}")`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            zIndex: -10,
+          }}
+        >
+          <Image
+            src={backgroundImage}
+            alt="My Background Image"
+            loading="lazy"
+          />
+        </div>
         <ChatScreen chat={chat} messages={messages} />
       </div>
     </div>
