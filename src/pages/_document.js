@@ -1,4 +1,5 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 export default function Document() {
   return (
@@ -7,7 +8,8 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        <Script src="./TW-ELEMENTS-PATH/dist/js/index.min.js" />
       </body>
     </Html>
-  )
+  );
 }
