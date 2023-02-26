@@ -48,22 +48,15 @@ const Sidebar = () => {
       </div>
 
       <div className="mt-6 px-1 overflow-y-auto">
-        <div className="flex space-x-1 items-center">
-          <AiOutlineSearch size={25} />
-          <input
-            placeholder="Search in chats"
-            className="bg-gray-800 rounded-lg py-1 px-2 outline-none placeholder:text-slate-200"
-          />
-        </div>
-        <div className="flex justify-center items-center mt-6">
+        <div className="flex justify-center items-center">
           <button
             onClick={createChat}
             className="rounded-lg bg-gray-800 px-2 py-2 uppercase"
           >
-            Start A New Chat
+            Create Chat
           </button>
         </div>
-        <div className="mt-7 max-w-[280px] overflow-x-hidden">
+        <div className="mt-7 w-[280px] overflow-x-hidden">
           <div className="chats-container flex flex-col gap-5 justify-center">
             {chatsSnapshot?.docs.map((chat) => (
               <Chats key={chat.id} id={chat.id} users={chat.data().users} />

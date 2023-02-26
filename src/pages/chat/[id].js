@@ -16,7 +16,7 @@ const Chat = ({ messages, chat }) => {
       setBackgroundImageIndex((backgroundImageIndex % 9) + 1);
     };
 
-    const intervalId = setInterval(changeBackgroundImage, 10000);
+    const intervalId = setInterval(changeBackgroundImage, 5000);
     return () => {
       console.log("I'm cleanup function");
       clearInterval(intervalId);
@@ -32,27 +32,6 @@ const Chat = ({ messages, chat }) => {
       </Head>
       <Sidebar />
       <div className="flex-1 relative">
-        {/* <div
-          className="absolute bg-cover opacity-90 top-0 left-0 right-0 bottom-0 -z-10"
-          id="chatScreen"
-        ></div> */}
-        {/* <Image
-          src={backgroundImage}
-          width="auto"
-          height="auto"
-          alt="My Background Image"
-          loading="lazy"
-          className="absolute bg-cover opacity-90 top-0 left-0 right-0 bottom-0 -z-10"
-        /> */}
-        {/* <div
-          id="chatScreen"
-          className="absolute bg-cover opacity-90 top-0 left-0 right-0 bottom-0 -z-10"
-          style={{
-            backgroundImage: `url("${backgroundImage}")`,
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-          }}
-        ></div> */}
         <Image
           className="absolute bg-cover opacity-90 top-0 left-0 right-0 bottom-0 -z-10"
           src={backgroundImage}

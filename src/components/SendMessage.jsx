@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BiWinkSmile } from "react-icons/bi";
 import { BsMic } from "react-icons/bs";
+import { IoIosSend } from "react-icons/io";
 
 const SendMessage = ({ sendMessage }) => {
   const [input, setInput] = useState("");
@@ -27,7 +28,7 @@ const SendMessage = ({ sendMessage }) => {
         Send
       </button>
 
-      <BsMic size={25} />
+      <IoIosSend size={25} />
     </form>
   );
 };

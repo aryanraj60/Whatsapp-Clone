@@ -11,10 +11,6 @@ const SidebarButtons = () => {
   };
   return (
     <div className="flex space-x-2">
-      <BiMessageDetail
-        size={25}
-        className="cursor-pointer rounded-lg hover:text-blue-700"
-      />
       <div className="flex justify-center">
         <div>
           <div class="dropend relative">

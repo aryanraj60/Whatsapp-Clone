@@ -2,7 +2,6 @@ import { auth } from "@/utils/firebase";
 import React, { useRef, useState } from "react";
 import firebase from "firebase/compat/app";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { MdAttachFile } from "react-icons/md";
 import { FiMoreVertical } from "react-icons/fi";
 import getRecipientEmail from "@/utils/getRecipientEmail";
 import { useCollection } from "react-firebase-hooks/firestore";
@@ -104,10 +103,6 @@ const ChatScreen = ({ chat, messages }) => {
         </div>
 
         <div className="flex items-center justify-center">
-          <MdAttachFile
-            size={28}
-            className="cursor-pointer hover:text-blue-600"
-          />
           <FiMoreVertical
             size={28}
             className="cursor-pointer hover:text-blue-600"
